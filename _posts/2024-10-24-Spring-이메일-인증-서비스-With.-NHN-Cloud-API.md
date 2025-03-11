@@ -1,3 +1,8 @@
+---
+tags: [Spring Boot, Java, Mail Sender, Route53]
+categories: [Spring Boot]
+---
+
 > Java / Spring 3.0 이상 버전 사용<br>
 
 
