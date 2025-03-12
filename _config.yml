@@ -25,6 +25,9 @@ name: "Sermadl's Devlog"
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://sermadl.github.io"
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 github:
   username: Sermadl # change to your GitHub username
@@ -215,9 +218,9 @@ exclude:
   - "*.config.js"
   - package*.json
 
-include:
-  - feed.xml
-  - sitemap.xml
+# include:
+#   - feed.xml
+#   - sitemap.xml
 
 jekyll-archives:
   enabled: [categories, tags]
