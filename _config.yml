@@ -217,7 +217,7 @@ exclude:
 
 include:
   - feed.xml
-  - "sitemap.xml"
+  - sitemap.xml
 
 jekyll-archives:
   enabled: [categories, tags]
