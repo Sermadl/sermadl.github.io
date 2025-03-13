@@ -194,8 +194,10 @@ application.yml에 위 코드를 추가해주면 등록 완료입니다!<br>
 
 ## 마치며
 
+임시로 User 서버에서 GraphQL API 설정을 모두 마치고 나면,<br>
+
 ![Api-Gateway-Test](/assets/img/api-gateway-test-1.png)
-user 서버와 정상적으로 소통이 되었습니다!
+user 서버와 정상적으로 소통이 됩니다!
 
 Spring Cloud Gateway 라이브러리가 제공해주는 기능이 굉장히 편리해서 생각보다 설정할 것이 많지 않았습니다! 아마 Eureka 서버와 Gateway를 함께 써서 더 쉽게 느껴지는 것일 수도 있겠지만, 이렇게 해서 Gateway 관련 설정을 모두 마쳤습니다.<br>
 
