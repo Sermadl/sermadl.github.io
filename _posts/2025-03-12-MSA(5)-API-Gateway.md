@@ -4,7 +4,6 @@ categories: [Spring Boot, MSA]
 tags:
   [
     MSA,
-    BFF,
     API Gateway,
     GraphQL,
     REST API,
@@ -20,7 +19,7 @@ tags:
 > Skala 과정에서 마이크로 서비스 아키텍처 구조에 대해 새롭게 알게 되었습니다.<br>
 > 배운 것을 실제로 구현해보기 위해 이 여정을 시작하기로 했습니다.<br>[처음 글부터 보러가기](<https://sermadl.github.io/posts/MSA(1)/>)
 
-Rest API 대신 GraphQL을 사용하여 API Gateway를 통해 각 서버와 통신해보겠습니다!
+API Gateway에서 Rest API 대신 GraphQL을 사용하여 API Gateway를 통해 각 서버와 통신해보겠습니다!
 
 ## Rest API vs GraphQL
 
@@ -46,9 +45,12 @@ Subscribtion 기능을 활용할 수 있을지는 모르겠지만 데이터 변�
 GraphQL을 한 번도 사용해 본 적이 없어서 안 그래도 익숙하지 않은 기술이 어렵기까지 하다고 하니까 정말 엄두가 안 났는데,<br>
 니까짓게(?) 어려우면 얼마나 어렵겠어 ㅋㅋ 라는 생각으로 시도하게 되었습니다.<br>
 
-하지만, 모든 서버를 GraphQL을 사용해서 통신하는 것이 아니라, API Gateway 서버([BFF, Backend For Frontend](https://velog.io/@seeh_h/BFF%EB%9E%80)) 서버에만 GraphQL을 적용하고자 합니다!<br>
+> 이 글에서는 모든 서버가 GraphQL로 동작하고, API Gateway 서버를 사용하여 라우팅 처리만 하도록 구성했습니다.
 
-> 이 글에서는 모든 서버가 GraphQL로 동작하고, API Gateway에서는 라우팅 처리만 하도록 구성했습니다.
+모든 서버를 GraphQL을 사용해서 통신하면 아무래도 성능 저하가 일어날 수도 있다는 생각이 들기도 하고, [Apollo Studio 라는 것을 사용해야되는 것 같았습니다](https://deview.kr/data/deview/session/attach/1100_T1_%E1%84%87%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A7%E1%86%AB_GraphQL%20API%20%E1%84%81%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%BA%E1%84%80%E1%85%A5%20%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%A2%E1%84%87%E1%85%A9%E1%84%8C%E1%85%B5%20%E1%84%86%E1%85%AF.pdf).<br>
+
+그래서 나중에는 마이크로 서비스 간 통신은 REST API로 하고,
+API Gateway가 요청을 그저 전달하는 것이 아니라, [Aggregation](https://medium.com/@premchandu.in/spring-webflux-aggregation-of-responses-from-different-microservices-acfb0e5f1fc5)(?)을 적용해 데이터도 가공해주도록 만들어 보겠습니다!<br>
 
 아무래도 GraphQL의 속도가 느리고, 서버 리소스를 많이 쓰기도 하고<br>
 제대로 MSA를 경험해보기 위해서는 각 서버의 API 통신 방식이 달라야(!) 한다고 생각했습니다.<br>
@@ -205,7 +207,7 @@ user 서버와 정상적으로 소통이 됩니다!
 
 Spring Cloud Gateway 라이브러리가 제공해주는 기능이 굉장히 편리해서 생각보다 설정할 것이 많지 않았습니다! 아마 Eureka 서버와 Gateway를 함께 써서 더 쉽게 느껴지는 것일 수도 있겠지만, 이렇게 해서 Gateway 관련 설정을 모두 마쳤습니다.<br>
 
-지금은 API Gateway 로서의 역할밖에 수행하지 않지만, 추후에 BFF로서 동작을 할 예정입니다...!
+지금은 API Gateway 로서의 역할밖에 수행하지 않지만, 추후에 각 마이크로 서비스로부터 받은 요청을 가공하여 하나의 API로 제공하게 만들 예정입니다...!
 다음은 GraphQL을 통해 API Gateway와 통신해보겠습니다.,.,☃︎
 
 <hr>
