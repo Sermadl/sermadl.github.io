@@ -19,7 +19,7 @@ tags:
 > Skala 과정에서 마이크로 서비스 아키텍처 구조에 대해 새롭게 알게 되었습니다.<br>
 > 배운 것을 실제로 구현해보기 위해 이 여정을 시작하기로 했습니다.<br>[처음 글부터 보러가기](<https://sermadl.github.io/posts/MSA(1)/>)
 
-API Gateway에서 Rest API 대신 GraphQL을 사용하여 API Gateway를 통해 각 서버와 통신해보겠습니다!
+GraphQL이 적용되어 있는 각 마이크로서비스들과 API Gateway를 통해 통신해보겠습니다!
 
 ## Rest API vs GraphQL
 
@@ -77,15 +77,15 @@ gRPC도 학습 난이도가 굉장한 것 같아서 `일단 MSA 내부를 모두
 
 ## 구현하게 될 MSA 구조
 
-결론적으로 제가 구현하게 될 마이크로 서비스 아키텍처를 그림으로 표현해봤습니다.<br>
+이 글에서 제가 구현할 마이크로 서비스 아키텍처를 그림으로 표현해봤습니다.<br>
 
-![System-Architecture](/assets/img/system-architecture.png)
+![System-Architecture](/assets/img/system-architecture-api-gateway.png)
 
-각 서버는 REST API, API Gateway(BFF)는 GraphQL로 구현합니다.
+각 서버는 REST API, API Gateway는 GraphQL로 구현합니다.
 
 _서버의 구조는 유기적으로 변동될 것 같습니다_
 
-> 현재 포스팅에서는 API Gateway로 요청을 보내면 이 서버에서 따로 처리가 되지 않고, 바로 마이크로 서비스로 요청을 라우팅해주는 방식으로 동작하도록 만들었습니다.<br>
+> 현재 포스팅에서는 API Gateway로 요청을 보내면 이 서버에서 따로 처리가 되지 않고, 바로 마이크로 서비스로 요청을 라우팅해주는 방식으로 동작하도록 만들었습니다.<br>[진짜최최종 아키텍처 구조 보러가기](https://sermadl.github.io/posts/Aggregation/)
 
 ## API Gateway 서버 구성
 
@@ -203,7 +203,7 @@ application.yml에 위 코드를 추가해주면 등록 완료입니다!<br>
 임시로 User 서버에서 GraphQL API 설정을 모두 마치고 나면,<br>
 
 ![Api-Gateway-Test](/assets/img/api-gateway-test-1.png)
-user 서버와 정상적으로 소통이 됩니다!
+user 서버와 정상적으로 소통이 됩니다! (Header에 Service-Type 변수로 user를 전달했습니다)
 
 Spring Cloud Gateway 라이브러리가 제공해주는 기능이 굉장히 편리해서 생각보다 설정할 것이 많지 않았습니다! 아마 Eureka 서버와 Gateway를 함께 써서 더 쉽게 느껴지는 것일 수도 있겠지만, 이렇게 해서 Gateway 관련 설정을 모두 마쳤습니다.<br>
 
