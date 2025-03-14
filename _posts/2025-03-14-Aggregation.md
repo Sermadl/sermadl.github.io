@@ -85,7 +85,7 @@ API Gateway 서버의 API로 요청이 들어오면,<br>
 이전 글에 현재 아키텍처와 조금 맞지 않는 부분이 있더라도 시행착오를 겪었던 과정이라고 생각해주세요..ㅎㅎ..<br>
 
 글의 내용은 간결하게 작성되었더라도..아키텍처에 대해 거의 3일 내내 고민한 것 같습니다..ㅜㅜ<br>
-Aggregation 기술과 유사한 BFF 패턴도 추후에 시간이 있다면 다뤄보도록 하겠습니다!<br>
+Aggregation 기술과 유사한 [BFF 패턴](https://engineering-skcc.github.io/microservice%20outer%20achitecture/outer-arch-api-gw/)도 추후에 시간이 있다면 다뤄보도록 하겠습니다!<br>
 
 바로 다음 글에서 본격적으로 마이크로서비스들과 유기적으로 통신하는 코드를 작성해보겠습니다!! 👏 💪<br>
 
