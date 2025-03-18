@@ -1,7 +1,7 @@
 ---
-title: "API Gateway에서 GraphQL to REST API로 요청 변환하기 - Aggregation 시작하기 (feat. Aggregation, MSA)"
+title: "API Gateway에서 사용자 요청 인증/인가하기 (feat. JWT, MSA)"
 categories: [Spring Boot, MSA]
-tags: [MSA, API Gateway, REST API, Spring Boot, Java, SKALA, SKALA1기, SK]
+tags: [MSA, API Gateway, REST API, JWT, Spring Boot, Java, SKALA, SKALA1기, SK]
 ---
 
 > Skala 과정에서 마이크로 서비스 아키텍처 구조에 대해 새롭게 알게 되었습니다.<br>
