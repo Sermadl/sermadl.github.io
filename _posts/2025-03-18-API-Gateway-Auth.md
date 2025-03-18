@@ -336,4 +336,4 @@ GPT야 어서 더 똑똑해지렴,,,<br>
 
 > 참고 자료
 
-[하나](https://pixx.tistory.com/287), [둘](https://velog.io/@jungse97/), [셋](Spring-Cloud-Users-Microservice-%EC%9D%B8%EC%A6%9D%EA%B3%BC-%EA%B6%8C%ED%95%9C), [넷](https://medium.com/@premchandu.in/spring-webflux-aggregation-of-responses-from-different-microservices-acfb0e5f1fc5), [다섯](https://lincoding.tistory.com/99)
+[하나](https://pixx.tistory.com/287), [둘](https://velog.io/@jungse97/Spring-Cloud-Users-Microservice-%EC%9D%B8%EC%A6%9D%EA%B3%BC-%EA%B6%8C%ED%95%9C), [셋](https://medium.com/@premchandu.in/spring-webflux-aggregation-of-responses-from-different-microservices-acfb0e5f1fc5), [넷](https://lincoding.tistory.com/99)
