@@ -1,5 +1,5 @@
 ---
-title: "API Gateway에서 사용자 요청 인증/인가하기 (feat. JWT, MSA)"
+title: "MSA 구현하기(6) -API Gateway에서 사용자 요청 인증/인가하기 (feat. JWT, MSA)"
 categories: [Spring Boot, MSA]
 tags: [MSA, API Gateway, REST API, JWT, Spring Boot, Java, SKALA, SKALA1기, SK]
 ---
@@ -9,6 +9,7 @@ tags: [MSA, API Gateway, REST API, JWT, Spring Boot, Java, SKALA, SKALA1기, SK]
 
 이번 기능은 생각(_GraphQL을 포기하지 못했던 때_)보다 잘 작동해서<br>
 다시 추진력을 얻었습니다,,
+[바뀐 구성 따라잡기](https://sermadl.github.io/posts/Back-to-REST/)
 
 ## System Architecture
 
