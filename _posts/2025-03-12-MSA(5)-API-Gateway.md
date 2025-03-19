@@ -85,7 +85,7 @@ gRPC도 학습 난이도가 굉장한 것 같아서 `일단 MSA 내부를 모두
 
 _서버의 구조는 유기적으로 변동될 것 같습니다_
 
-> 현재 포스팅에서는 API Gateway로 요청을 보내면 이 서버에서 따로 처리가 되지 않고, 바로 마이크로 서비스로 요청을 라우팅해주는 방식으로 동작하도록 만들었습니다.<br>[진짜최최종 아키텍처 구조 보러가기](https://sermadl.github.io/posts/Aggregation/)
+> 현재 포스팅에서는 API Gateway로 요청을 보내면 이 서버에서 따로 처리가 되지 않고, 바로 마이크로 서비스로 요청을 라우팅해주는 방식으로 동작하도록 만들었습니다.<br>[진짜최최종 아키텍처 구조 보러가기](https://sermadl.github.io/posts/Back-to-REST/)
 
 ## API Gateway 서버 구성
 
