@@ -171,35 +171,34 @@ public ResponseEntity<UserInfoResponse> getMyInfo(
 <details>
   <summary>여기를 클릭하면 내용이 열립니다</summary>
 
-### RoleCheck.java
-
-```java
+<h4>RoleCheck.java</h4>
+<pre><code class="language-java">
 public class RoleCheck {
-  public static void isUser(UserRole role) {
-      if (!role.isUser()) {
-          throw new HasNoAuthorityException();
-      }
-  }
+    public static void isUser(UserRole role) {
+        if (!role.isUser()) {
+            throw new HasNoAuthorityException();
+        }
+    }
 
-  public static void isSeller(UserRole role) {
-      if (!role.isSeller()) {
-          throw new HasNoAuthorityException();
-      }
-  }
+    public static void isSeller(UserRole role) {
+        if (!role.isSeller()) {
+            throw new HasNoAuthorityException();
+        }
+    }
 
-  public static void isAdmin(UserRole role) {
-      if (!role.isAdmin()) {
-          throw new AdminOnlyException();
-      }
-  }
+    public static void isAdmin(UserRole role) {
+        if (!role.isAdmin()) {
+            throw new AdminOnlyException();
+        }
+    }
+
 }
-```
+</code></pre>
 
-  <hr>
+<hr>
 
-### UserRole.java
-
-```java
+<h4>UserRole.java</h4>
+<pre><code class="language-java">
 @Getter
 public enum UserRole {
     GUEST("GUEST"),
@@ -235,8 +234,9 @@ public enum UserRole {
     public boolean isUser() {
         return this == USER;
     }
+
 }
-```
+</code></pre>
 
 </details>
 
