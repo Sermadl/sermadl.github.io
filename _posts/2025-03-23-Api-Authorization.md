@@ -60,7 +60,7 @@ Gateway에서 사용자의 정보를 담아 API를 호출해야 합니다.<br>
 
 라우팅 되는 API지만 권한 확인이 필요한 경우를 먼저 다뤄보겠습니다.
 
-### AuthenticationFilter.class 내부 함수 수정
+### AuthenticationFilter.java 내부 함수 수정
 
 ```java
 private Mono<Void> validToken(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -106,6 +106,58 @@ private Mono<Void> validToken(ServerWebExchange exchange, GatewayFilterChain cha
 Header에 `x-user-id` , `x-user-role` 변수를 통해 로그인 된 사용자의 ID와 User Role을 전달합니다.<br>
 
 <hr>
+
+### AggregationController.java 내부 함수 수정
+
+```java
+.
+.
+.
+
+Flux<OrderResponse> orderResponses = orderServiceClient.getMyPurchaseList(
+        response.getId(),
+        response.getRole()
+    );
+
+.
+.
+.
+```
+
+사용자가 보낸 JWT 토큰을 검증한 후에 받는 response에 User Id와 Role이 저장되어 있으므로,<br>
+다음 API를 호출할 때 이 둘을 담아서 보내야 합니다.<br>
+
+<hr>
+
+### OrderServiceClient.java 내부 함수 수정
+
+```java
+.
+.
+.
+
+/** [사용자]
+ * 사용자가 자신이 주문한 내역을 조회
+ * @param userId 로그인 된 사용자 User Id
+ * @param role 로그인 된 사용자 Role
+ * @return 주문 정보 리스트
+ */
+public Flux<OrderResponse> getMyPurchaseList(Long userId, UserRole role) {
+    return webClientBuilder.build()
+            .get()
+            .uri("http://ORDER-SERVICE/myList")
+            .header("x-user-id", String.valueOf(userId))
+            .header("x-user-role", String.valueOf(role))
+            .retrieve()
+            .bodyToFlux(OrderResponse.class);
+}
+
+.
+.
+.
+```
+
+header에 `userId` 와 `role` 을 넣어줍니다.<br>
 
 ## 마이크로 서비스에서 사용자의 정보 받기
 
