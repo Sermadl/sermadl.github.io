@@ -7,6 +7,7 @@ tags:
     Spring,
     API Gateway,
     Aggregation,
+    Custom Error,
     REST API,
     Spring Boot,
     Java,
