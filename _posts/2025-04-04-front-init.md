@@ -114,13 +114,13 @@ export default router;
 
 [ App.vue ]
 
-```js
+```vue
 <template>
   <RouterView></RouterView>
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
 </script>
 ```
 
@@ -165,7 +165,7 @@ app.mount("#app");
 
 [ Start.vue ]
 
-```js
+```vue
 <template>
   <div class="h-screen flex flex-col justify-center items-center bg-gray-100">
     <h1 class="text-center">마이팡</h1>
@@ -175,8 +175,7 @@ app.mount("#app");
 
 <script setup>
 import { useRouter, useRoute } from "vue-router";
-import MainLoginButton from '@/components/MainLoginButton.vue'
-
+import MainLoginButton from "@/components/MainLoginButton.vue";
 </script>
 ```
 
@@ -184,18 +183,20 @@ import MainLoginButton from '@/components/MainLoginButton.vue'
 
 [ MainLoginButton.vue ]
 
-```js
+```vue
 <template>
-    <div class="text-center">
-        <button class="btn btn-primary" @click="$router.push('/register')">시작하기</button>
-        <br>
-        <button class="btn btn-link" @click="$router.push('/login')">바로 로그인하러 가기</button>
-    </div>
+  <div class="text-center">
+    <button class="btn btn-primary" @click="$router.push('/register')">
+      시작하기
+    </button>
+    <br />
+    <button class="btn btn-link" @click="$router.push('/login')">
+      바로 로그인하러 가기
+    </button>
+  </div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 ```
 
 컴포넌트인 `MainLoginButton.vue` 파일을 `Start.vue` 에 등록합니다.<br>
@@ -212,14 +213,14 @@ import MainLoginButton from '@/components/MainLoginButton.vue'
 
 [ Login.vue ]
 
-```js
+```vue
 <template>
-    <LoginForm></LoginForm>
+  <LoginForm></LoginForm>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import LoginForm from '@/components/LoginForm.vue';
+import { useRouter } from "vue-router";
+import LoginForm from "@/components/LoginForm.vue";
 </script>
 ```
 
@@ -227,7 +228,7 @@ import LoginForm from '@/components/LoginForm.vue';
 
 [ LoginForm.vue ]
 
-```js
+```vue
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
@@ -246,7 +247,7 @@ const login = async () => {
 
   const requestBody = {
     email: email.value,
-    password: password.value,
+    password: password.value
   };
 
   const authStore = useAuthStore();
@@ -272,9 +273,11 @@ const login = async () => {
 };
 
 const emailError = computed(() => {
-  if (!email.value) return '';
+  if (!email.value) return "";
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email.value) ? '' : '올바른 이메일 형식을 입력해주세요.';
+  return emailRegex.test(email.value)
+    ? ""
+    : "올바른 이메일 형식을 입력해주세요.";
 });
 </script>
 
@@ -309,14 +312,14 @@ const emailError = computed(() => {
 
 [ api-call.ts ]
 
-```js
+```ts
 export const Response = {
   SUCCESS: 0,
-  FAIL: 1,
+  FAIL: 1
 };
 
 const apiHeaders = {
-  "Content-Type": "application/json",
+  "Content-Type": "application/json"
 };
 
 const handleResponse = async (response: Response) => {
@@ -328,7 +331,7 @@ const handleResponse = async (response: Response) => {
       result: Response.SUCCESS,
       code: 200,
       message: "",
-      data: data,
+      data: data
     };
   } else {
     const errorMsg = data.message || "오류가 발생했습니다.";
@@ -337,7 +340,7 @@ const handleResponse = async (response: Response) => {
       code: data.code,
       status: status,
       message: errorMsg,
-      data: null,
+      data: null
     };
   }
 };
@@ -348,7 +351,7 @@ const handleError = (error: any) => {
     result: Response.FAIL,
     code: "NETWORK_ERROR",
     message: errorMsg,
-    data: null,
+    data: null
   };
 };
 
@@ -361,7 +364,7 @@ const sendRequest = async (
   try {
     const options: RequestInit = {
       method,
-      headers: { ...apiHeaders, ...headers },
+      headers: { ...apiHeaders, ...headers }
     };
 
     if (method !== "GET" && method !== "HEAD") {
@@ -404,7 +407,7 @@ const apiCall = {
     await sendRequest("PUT", url, headers, body),
 
   delete: async (url: string, headers: any = null, body: any = null) =>
-    await sendRequest("DELETE", url, headers, body),
+    await sendRequest("DELETE", url, headers, body)
 };
 
 export default apiCall;
@@ -504,7 +507,7 @@ Skala의 프론트 수업 때 받았던 소스코드의 일부를 리팩토링�
 
 [ Home.vue ]
 
-```js
+```vue
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import apiCall from "@/scripts/api-call";
@@ -551,7 +554,8 @@ onBeforeUnmount(() => {
                 $router.push(authStore.accessToken ? '/logout' : '/login')
               "
             >
-              {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{% endraw %}
+              {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{%
+              endraw %}
             </button>
             <button class="btn btn-sm" @click="$router.push('/register')">
               회원가입
@@ -679,27 +683,27 @@ dropdown-submenu {
 
 [ 최상단 네비게이션 바 ]
 
-```js
+```html
 <nav class="navbar bg-body-tertiary border-bottom p-0">
-    <div class="container-fluid">
-        <a></a>
-        <div>
-        <button
-            class="btn btn-sm"
-            @click="
+  <div class="container-fluid">
+    <a></a>
+    <div>
+      <button
+        class="btn btn-sm"
+        @click="
             $router.push(authStore.accessToken ? '/logout' : '/login')
             "
-        >
-            {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{% endraw %}
-        </button>
-        <button class="btn btn-sm" @click="$router.push('/register')">
-            회원가입
-        </button>
-        <button class="btn btn-sm" @click="$router.push('/register')">
-            판매자 가입
-        </button>
-        </div>
+      >
+        {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{% endraw %}
+      </button>
+      <button class="btn btn-sm" @click="$router.push('/register')">
+        회원가입
+      </button>
+      <button class="btn btn-sm" @click="$router.push('/register')">
+        판매자 가입
+      </button>
     </div>
+  </div>
 </nav>
 ```
 
@@ -716,7 +720,7 @@ dropdown-submenu {
 
 [ 검색창 ]
 
-```js
+```html
 <div>
   <h3 class="text-center mt-5">상품을 검색해보세요</h3>
 
@@ -743,7 +747,7 @@ dropdown-submenu {
 
 - 스크립트 내부 코드
 
-```js
+```ts
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import apiCall from "@/scripts/api-call";
 import { useAuthStore } from "@/scripts/store-auth";
@@ -776,7 +780,7 @@ onBeforeUnmount(() => {
 
 - 템플릿 내부 코드
 
-```js
+```html
 <nav
     class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom"
     style="width: 100%"
