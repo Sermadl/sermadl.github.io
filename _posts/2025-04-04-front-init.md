@@ -551,7 +551,7 @@ onBeforeUnmount(() => {
                 $router.push(authStore.accessToken ? '/logout' : '/login')
               "
             >
-              {{ authStore.accessToken ? "로그아웃" : "로그인" }}
+              {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{% endraw %}
             </button>
             <button class="btn btn-sm" @click="$router.push('/register')">
               회원가입
@@ -690,7 +690,7 @@ dropdown-submenu {
             $router.push(authStore.accessToken ? '/logout' : '/login')
             "
         >
-            {{ authStore.accessToken ? "로그아웃" : "로그인" }}
+            {% raw %}{{ authStore.accessToken ? "로그아웃" : "로그인" }}{% endraw %}
         </button>
         <button class="btn btn-sm" @click="$router.push('/register')">
             회원가입
