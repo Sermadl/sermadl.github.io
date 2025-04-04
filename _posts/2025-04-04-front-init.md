@@ -1,6 +1,6 @@
 ---
 title: "Vue 시작하기(1) - 초기 구성 (API 연결)"
-categories: [Vue, MSA]
+categories: [Vue]
 tags: [MSA, Vue, SKALA, SKALA1기, SK]
 ---
 
