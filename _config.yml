@@ -28,6 +28,7 @@ url: "https://sermadl.github.io"
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-linkpreview
 
 github:
   username: Sermadl # change to your GitHub username
@@ -43,9 +44,6 @@ social:
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
-
-plugins:
-  - jekyll-linkpreview
 
 # Site Verification Settings
 webmaster_verifications:
